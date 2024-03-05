@@ -1,0 +1,44 @@
+[
+  {
+    "name": "One Extra Hour",
+    "description": "Add an extra hour to your day.",
+    "price": 100,
+    "stock": 100
+  },
+  {
+    "name": "The Eighth Day of the Week",
+    "description": "Add an additional day to your calendar",
+    "price": 200,
+    "stock": 50
+  },
+  {
+    "name": "Fast Forward",
+    "description": "Skip ahead to the good parts.",
+    "price": 200,
+    "stock": 50
+  },
+  {
+    "name": "Go Back in Time",
+    "description": "Relive your cherished moments or explore history.",
+    "price": 250,
+    "stock": 50
+  },
+  {
+    "name": "Leap Second",
+    "description": "Own an extra second.",
+    "price": 500,
+    "stock": 60
+  },
+  {
+    "name": "30 Minutes of Peace",
+    "description": "A half-hour of paused time.",
+    "price": 50,
+    "stock": 200
+  },
+  {
+    "name": "Personalized Time Capsule",
+    "description": "Secure your messages or items, to be reopened in the future. Physical capsule included.",
+    "price": 50,
+    "stock": 75
+  }
+]

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <title>Product Reviews</title>
+  <style>
+    a{
+      color: #34495e;
+      text-decoration: none;
+    }
+    a:hover{
+      color:lightblue;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    .review {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .review-header .customer-name {
+      font-weight: bold;
+      color: #333;
+    }
+    .review-header .review-date {
+      color: #666;
+      font-size: 0.9em;
+    }
+    .review-body {
+      font-size: 1em;
+      line-height: 1.4;
+    }
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      font-family: inherit;
+      resize: vertical;
+    }
+    button {
+      background-color: #34495e;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+      display: inline-block;
+    }
+    button:hover {
+      background-color: lightblue;
+    }
+  </style>
+</head>
+<body>
+ <p><a href="/"><i class="fa fa-arrow-left"></i> Products</a></p>
+  <h1>Reviews for <%= product.name %></h1>
+  <% if (product.reviews && product.reviews.length > 0) { %>
+    <% product.reviews.forEach(review => { %>
+      <div class="review">
+        <div class="review-header">
+          <span class="customer-name"><%= review.customer %></span>
+          <span class="review-date"><%= new Date(review.createdAt).toLocaleDateString() %></span>
+        </div>
+        <div class="review-body">
+          <p><%= review.comment %></p>
+        </div>
+      </div>
+    <% }); %>
+  <% } else { %>
+    <p>No reviews yet.</p>
+  <% } %>
+
+  <h2>Leave a Review</h2>
+  <form action="/product/<%= product._id %>/addReview" method="POST">
+    <textarea name="comment" required placeholder="Your review"></textarea>
+    <!-- Include rating if needed -->
+    <button type="submit">Submit Review</button>
+  </form>
+</body>
+</html>

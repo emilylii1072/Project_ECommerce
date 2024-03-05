@@ -1,0 +1,155 @@
+/* Base Layout and Theme */
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #fafafa;
+  margin: 0;
+  padding: 20px;
+  color: #2c3e50;
+  line-height: 1.6;
+}
+
+/* Header Styling for a Sophisticated Look */
+h2, h3 {
+  font-family: 'Merriweather', serif;
+  font-weight: 700; 
+  color: #34495e;
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+
+h2{
+  text-align: center;
+}
+
+/* Elegant Search Input */
+#searchInput {
+  padding: 10px 15px;
+  margin-bottom: 30px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #bdc3c7;
+  border-radius: 20px; /* Rounded edges for a modern look */
+  background-color: #ecf0f1;
+  color: #34495e;
+}
+
+/* Product List Styling for Time-themed Products */
+#productsList > div {
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  margin-bottom: 25px;
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+#productsList > div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+}
+
+/* Product Details with a Focus on Time */
+#productsList p {
+  margin: 10px 0;
+  color: #7f8c8d; /* Subdued text color for descriptions */
+}
+
+/* Emphasize Product Name */
+#productsList p strong {
+  display: block;
+  color: #2c3e50;
+  font-size: 1.4em;
+  margin-bottom: 5px;
+}
+
+/* Stylish Form and Button for a Premium Feel */
+#productsList form {
+  margin-top: 20px;
+}
+
+ input[type="number"], select {
+  padding: 8px;
+  border: 1px solid #bdc3c7;
+  border-radius: 10px;
+  background-color: #ecf0f1;
+}
+
+button {
+  background-color: #34495e;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+ button:hover {
+  background-color: lightblue;
+}
+
+/* Logout Link - Understated Elegance */
+a {
+  color: #34495e;
+  text-decoration: none;
+}
+
+a:hover {
+  color: lightblue;
+}
+
+#productsList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#productsList > div {
+  width: calc(33% - 20px); /* Subtract some width for margin/padding */
+  margin: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 20px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+/* Responsive Adjustments for Elegance on Any Device */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  #productsList form {
+    flex-direction: column;
+  }
+
+  #productsList button, #productsList input[type="number"] {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+/* Flash Messages Styling */
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #fff;
+  text-align: center;
+}
+
+.alert-success {
+  background-color: #34495e; /* Green */
+  border-color: white;
+}
+
+.alert-error {
+  background-color: #e74c3c; /* Green */
+  border-color: white;
+}
+
+
+
+

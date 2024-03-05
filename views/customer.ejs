@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Profile</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <style>
+    a{
+      color: #34495e;
+      text-decoration: none;
+    }
+    a:hover{
+      color:lightblue;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f2f5;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #333;
+      border-bottom: 1px solid #eaeaea;
+      padding-bottom: 10px;
+    }
+    .profile-info, .purchases, .cart, .reviews {
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      text-align: left;
+      padding: 8px;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #34495e;
+      color: white;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #34495e;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+    .btn:hover {
+      background-color: lightblue;
+    }
+    .review {
+      background-color: #f9f9f9;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+   <p><a href="/"><i class="fa fa-arrow-left"></i> Products</a></p>
+    <div class="profile-info">
+      <h2>Profile Information</h2>
+      <p><strong>Username:</strong> <%= user.username %></p>
+    </div>
+    <div class="purchases">
+      <h2>Purchase History</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% user.purchases.items.forEach(function(item) { %>
+            <tr>
+              <td><%= item.productId.name %></td>
+              <td><%= item.quantity %></td>
+              <td>$<%= item.price.toFixed(2) %></td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+    <div class="cart">
+      <h2>Current Cart</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+         
+          <% user.cart.items.forEach(item => { %>
+            <tr>
+              <td><%= item.productId.name %></td>
+              <td><%= item.quantity %></td>
+              <td>$<%= item.price.toFixed(2) %></td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+      <a href="/showCart" class="btn">Proceed to Checkout</a>
+    </div>
+    <div class="reviews">
+      <h2>My Reviews</h2>
+      <% if (user.reviews && user.reviews.length > 0) { %>
+        <% user.reviews.forEach(function(review) { %>
+          <div class="review">
+            <p>Product: <%= review.product %></p>
+            <p>Comment: <%= review.comment %></p>
+            <p>Date: <%= new Date(review.createdAt).toLocaleDateString() %></p>
+          </div>
+        <% }); %>
+      <% } else { %>
+        <p>You have not left any reviews yet.</p>
+      <% } %>
+    </div>
+  </div>
+</body>
+</html>

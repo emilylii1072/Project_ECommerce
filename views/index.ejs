@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+   
+  <title>Buy Time</title>
+  
+</head>
+<body>
+ <% if (flashMessages.success) { %>
+  <div class="alert alert-success">
+    <%= flashMessages.success %>
+  </div>
+  
+<% } %>
+ <% if (flashMessages.error) { %>
+  <div class="alert alert-error">
+    <%= flashMessages.error %>
+  </div>
+  
+<% } %>
+  <p><a href="/logout"><i class="fas fa-sign-out-alt"></i> Log Out</a></p>
+  <p><a href="/showCart"><i class="fas fa-shopping-cart"></i> Cart</a></p>
+  <p><a href="/customer"><i class="fas fa-user"></i> Customer</a></p>
+   <div>
+    <h2>Buy Some Time</h2>
+    <input type="text" id="searchInput" name="searchInput" placeholder="Search by name...">
+  </div>
+  <div>
+  <label for="minPrice">Min Price:</label>
+  <input type="number" id="minPrice" name="minPrice">
+  
+  <label for="maxPrice">Max Price:</label>
+  <input type="number" id="maxPrice" name="maxPrice">
+  <select id="sortBy">
+    <option value="priceAsc">Price: Low to High</option>
+    <option value="priceDesc">Price: High to Low</option>
+    <option value="nameAsc">Name: A to Z</option>
+    <option value="nameDesc">Name: Z to A</option>
+    <option value="stockDesc">Stock: High to Low</option>
+  </select>
+</div>
+  <div id="productsList">
+    
+  </div>
+  <script src="/script.js"></script>
+</body>
+</html>
